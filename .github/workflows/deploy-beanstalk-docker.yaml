@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: zip -r deploy-1.zip . -x '*.git*'
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
@@ -22,6 +22,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: angular-docker
           environment_name: Angulardocker-env
-          version_label: 0.0.1
+          version_label: 0.0.2
           region: ap-south-1
-          deployment_package: deploy.zip
+          deployment_package: deploy-1.zip
